@@ -1,0 +1,24 @@
+{
+  "name": "CFML Hello World",
+  "image": "ortussolutions/commandbox:latest",
+  "workspaceFolder": "/app",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/app,type=bind,consistency=cached",
+  "extensions": [
+    "kamasamak.vscode-cfml",
+    "formulahendry.auto-close-tag",
+    "ortus-solutions.vscode-testbox"
+  ],
+  "forwardPorts": [8081],
+  
+  "containerEnv": {
+    "CFENGINE": "lucee",
+    "CFVERSION": "6.2.0.321"
+  },
+  "remoteUser": "root",
+  //"postCreateCommand": "box install && box server start",
+  "postCreateCommand": "box install",
+  "postStartCommand": "box server start port=8081 host=0.0.0.0",
+  "features": {
+    "ghcr.io/devcontainers/features/git-lfs:1": {}
+  }
+}
